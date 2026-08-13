@@ -322,13 +322,9 @@
 
       const div = document.createElement('div');
       div.className = 'msg ' + (m.who === 'Dean' ? 'dean' : 'nian');
-      const idx = document.createElement('span');
-      idx.className = 'idx';
-      idx.textContent = '#' + (i + 1);
       const who = document.createElement('div');
       who.className = 'who';
       who.textContent = m.who;
-      who.appendChild(idx);
       if(showTs && m.ts){
         const tsSpan = document.createElement('span');
         tsSpan.className = 'ts';
