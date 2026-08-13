@@ -121,7 +121,7 @@
   </div>
 
   <div class="opts">
-    <label><input type="checkbox" id="optStatus" checked> 去掉 Dean 消息末尾的状态块</label>
+    <label><input type="checkbox" id="optStatus"> 去掉 Dean 消息末尾的状态块</label>
     <label><input type="checkbox" id="optThink"> 包含 Dean 的思考（thinking）</label>
     <label><input type="checkbox" id="optMutter"> 包含 Dean 的终端碎碎念</label>
     <label><input type="checkbox" id="optTs"> 带时间</label>
@@ -383,7 +383,7 @@
 
   // ---------- 文件读入 ----------
   function loadFiles(fileList){
-    const files = Array.from(fileList).filter(f => /\.jsonl?$/i.test(f.name));
+    const files = Array.from(fileList);
     if(!files.length) return;
     rawFiles = [];
     let pending = files.length;
