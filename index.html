@@ -324,7 +324,12 @@
       div.className = 'msg ' + (m.who === 'Dean' ? 'dean' : 'nian');
       const who = document.createElement('div');
       who.className = 'who';
-      who.textContent = m.who;
+      const whoText = document.createTextNode(m.who);
+      who.appendChild(whoText);
+      const idxSpan = document.createElement('span');
+      idxSpan.className = 'idx';
+      idxSpan.textContent = '#' + (i + 1);
+      who.appendChild(idxSpan);
       if(showTs && m.ts){
         const tsSpan = document.createElement('span');
         tsSpan.className = 'ts';
