@@ -90,6 +90,7 @@
   }
   .msg .who{font-size:12px;font-weight:600;margin-bottom:6px;letter-spacing:.5px}
   .msg .ts{font-weight:400;color:var(--ink-dim);margin-left:8px;font-size:11px}
+  .msg .idx{float:right;color:var(--ink-dim);font-size:11px;font-weight:400;opacity:.6}
   .msg .body{font-size:14px;line-height:1.85;white-space:pre-wrap;word-break:break-word;color:var(--ink)}
   .msg.nian{align-self:flex-start;border-left:3px solid var(--nian)}
   .msg.nian .who{color:var(--nian)}
@@ -314,15 +315,20 @@
     const showTs = optTs.checked;
     let nNian = 0, nDean = 0;
 
-    for(const m of messages){
+    for(let i = 0; i < messages.length; i++){
+      const m = messages[i];
       if(m.who === '念念') nNian++;
       else if(m.who === 'Dean') nDean++;
 
       const div = document.createElement('div');
       div.className = 'msg ' + (m.who === 'Dean' ? 'dean' : 'nian');
+      const idx = document.createElement('span');
+      idx.className = 'idx';
+      idx.textContent = '#' + (i + 1);
       const who = document.createElement('div');
       who.className = 'who';
       who.textContent = m.who;
+      who.appendChild(idx);
       if(showTs && m.ts){
         const tsSpan = document.createElement('span');
         tsSpan.className = 'ts';
